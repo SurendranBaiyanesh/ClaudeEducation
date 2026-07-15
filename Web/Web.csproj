@@ -10,9 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BacklogTicketManager.Common\BacklogTicketManager.Common.csproj" />
-    <ProjectReference Include="..\BacklogTicketManager.Data\BacklogTicketManager.Data.csproj" />
-    <ProjectReference Include="..\BacklogTicketManager.Logic\BacklogTicketManager.Logic.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\Logic\Logic.csproj" />
   </ItemGroup>
 
 </Project>
