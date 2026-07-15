@@ -1,0 +1,15 @@
+@page "/email-log"
+@inject ITicketNotificationService NotificationService
+
+<div class="email-log-page">
+    <h1 class="email-log-page__title">Email Log</h1>
+
+    @if (_notifications is null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <EmailLogControl Notifications="_notifications" />
+    }
+</div>

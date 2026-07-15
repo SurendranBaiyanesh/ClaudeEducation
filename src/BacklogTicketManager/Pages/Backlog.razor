@@ -1,0 +1,15 @@
+@page "/backlog"
+@inject ITicketService TicketService
+
+<div class="backlog-page">
+    <h1 class="backlog-page__title">Backlog</h1>
+
+    @if (_tickets is null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <TicketListControl Tickets="_tickets" OnSelect="GoToTicket" />
+    }
+</div>

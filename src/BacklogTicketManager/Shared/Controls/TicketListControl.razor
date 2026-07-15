@@ -1,0 +1,48 @@
+<div class="ticket-list">
+    <div class="ticket-list__toolbar">
+        <input class="ticket-list__search"
+               type="search"
+               placeholder="Search by title or assignee..."
+               value="@SearchTerm"
+               @oninput="OnSearchChanged" />
+
+        <select class="ticket-list__filter" value="@StatusFilter" @onchange="OnStatusFilterChanged">
+            <option value="">All statuses</option>
+            @foreach (var status in StatusOptions)
+            {
+                <option value="@status">@status</option>
+            }
+        </select>
+    </div>
+
+    @if (FilteredTickets.Count == 0)
+    {
+        <p class="ticket-list__empty">No tickets match the current filters.</p>
+    }
+    else
+    {
+        <table class="ticket-list__table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Assigned To</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ticket in FilteredTickets)
+                {
+                    <tr class="ticket-list__row" @onclick="() => OnSelect.InvokeAsync(ticket.Id)">
+                        <td>@ticket.Title</td>
+                        <td><StatusBadgeControl Status="ticket.Status" /></td>
+                        <td><PriorityBadgeControl Priority="ticket.Priority" /></td>
+                        <td>@ticket.AssignedTo</td>
+                        <td><DeadlineIndicatorControl Ticket="ticket" /></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

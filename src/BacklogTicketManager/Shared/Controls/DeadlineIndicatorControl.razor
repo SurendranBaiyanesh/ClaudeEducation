@@ -1,0 +1,7 @@
+<span class="deadline-indicator @CssClass">
+    <span class="deadline-indicator__date">@Ticket.DueDate.ToString("yyyy-MM-dd HH:mm")</span>
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <span class="deadline-indicator__label">@Label</span>
+    }
+</span>

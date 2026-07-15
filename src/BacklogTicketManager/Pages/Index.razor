@@ -1,0 +1,34 @@
+@page "/"
+@inject ITicketService TicketService
+
+<div class="dashboard">
+    <h1 class="dashboard__title">Dashboard</h1>
+
+    @if (_tickets is null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <div class="dashboard__cards">
+            <div class="dashboard__card">
+                <span class="dashboard__card-value">@_tickets.Count</span>
+                <span class="dashboard__card-label">Total tickets</span>
+            </div>
+            <div class="dashboard__card dashboard__card--danger">
+                <span class="dashboard__card-value">@_tickets.Count(t => t.IsOverdue)</span>
+                <span class="dashboard__card-label">Overdue</span>
+            </div>
+            <div class="dashboard__card dashboard__card--warning">
+                <span class="dashboard__card-value">@_tickets.Count(t => t.IsDueSoon(TimeSpan.FromHours(24)))</span>
+                <span class="dashboard__card-label">Due soon</span>
+            </div>
+            <div class="dashboard__card dashboard__card--success">
+                <span class="dashboard__card-value">@_tickets.Count(t => t.Status == TicketStatus.Completed)</span>
+                <span class="dashboard__card-label">Completed</span>
+            </div>
+        </div>
+
+        <TicketListControl Tickets="_tickets" OnSelect="GoToTicket" />
+    }
+</div>

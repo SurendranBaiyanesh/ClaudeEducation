@@ -1,0 +1,203 @@
+/* site.css - global layout, typography, navigation, and page chrome.
+   All styling for this application lives under wwwroot/css - no CSS isolation
+   files (*.razor.css) and no inline <style> blocks are used anywhere in the project. */
+
+:root {
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text: #1f2933;
+  --color-text-muted: #6b7280;
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-danger: #dc2626;
+  --color-warning: #d97706;
+  --color-success: #16a34a;
+  --radius: 8px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1, h2, h3 {
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-shell__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-shell__brand {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.app-shell__main {
+  flex: 1;
+  padding: var(--spacing-lg);
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.app-shell__footer {
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.nav-menu {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.nav-menu__link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius);
+}
+
+.nav-menu__link:hover {
+  background-color: var(--color-bg);
+}
+
+.nav-menu__link.active {
+  color: var(--color-primary);
+  background-color: #eff6ff;
+}
+
+.not-found {
+  padding: var(--spacing-lg);
+  color: var(--color-text-muted);
+}
+
+.error-page {
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.error-page__title {
+  color: var(--color-danger);
+}
+
+.button {
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.button--primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.button--primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.button--secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.button--secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dashboard__title {
+  margin-bottom: var(--spacing-md);
+}
+
+.dashboard__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.dashboard__card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.dashboard__card-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.dashboard__card-label {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.dashboard__card--danger .dashboard__card-value {
+  color: var(--color-danger);
+}
+
+.dashboard__card--warning .dashboard__card-value {
+  color: var(--color-warning);
+}
+
+.dashboard__card--success .dashboard__card-value {
+  color: var(--color-success);
+}
+
+#blazor-error-ui {
+  background: #f8d7da;
+  color: #721c24;
+  bottom: 0;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+  display: none;
+  left: 0;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+  cursor: pointer;
+  position: absolute;
+  right: var(--spacing-md);
+  top: var(--spacing-xs);
+}

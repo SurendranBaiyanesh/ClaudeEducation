@@ -1,0 +1,61 @@
+<EditForm Model="Model" OnValidSubmit="HandleValidSubmit" class="ticket-form">
+    <DataAnnotationsValidator />
+
+    <div class="ticket-form__field">
+        <label for="title">Title</label>
+        <InputText id="title" class="ticket-form__input" @bind-Value="Model.Title" />
+        <ValidationMessage For="() => Model.Title" class="ticket-form__error" />
+    </div>
+
+    <div class="ticket-form__field">
+        <label for="description">Description</label>
+        <InputTextArea id="description" class="ticket-form__textarea" @bind-Value="Model.Description" />
+        <ValidationMessage For="() => Model.Description" class="ticket-form__error" />
+    </div>
+
+    <div class="ticket-form__row">
+        <div class="ticket-form__field">
+            <label for="status">Status</label>
+            <InputSelect id="status" class="ticket-form__select" @bind-Value="Model.Status">
+                @foreach (var status in Enum.GetValues<TicketStatus>())
+                {
+                    <option value="@status">@status</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="ticket-form__field">
+            <label for="priority">Priority</label>
+            <InputSelect id="priority" class="ticket-form__select" @bind-Value="Model.Priority">
+                @foreach (var priority in Enum.GetValues<TicketPriority>())
+                {
+                    <option value="@priority">@priority</option>
+                }
+            </InputSelect>
+        </div>
+    </div>
+
+    <div class="ticket-form__row">
+        <div class="ticket-form__field">
+            <label for="assignedTo">Assigned To</label>
+            <InputText id="assignedTo" class="ticket-form__input" @bind-Value="Model.AssignedTo" />
+            <ValidationMessage For="() => Model.AssignedTo" class="ticket-form__error" />
+        </div>
+
+        <div class="ticket-form__field">
+            <label for="assignedToEmail">Assignee Email</label>
+            <InputText id="assignedToEmail" class="ticket-form__input" @bind-Value="Model.AssignedToEmail" />
+            <ValidationMessage For="() => Model.AssignedToEmail" class="ticket-form__error" />
+        </div>
+    </div>
+
+    <div class="ticket-form__field">
+        <label for="dueDate">Due Date</label>
+        <InputDate id="dueDate" class="ticket-form__input" @bind-Value="Model.DueDate" />
+        <ValidationMessage For="() => Model.DueDate" class="ticket-form__error" />
+    </div>
+
+    <div class="ticket-form__actions">
+        <button type="submit" class="button button--primary">@SubmitLabel</button>
+    </div>
+</EditForm>

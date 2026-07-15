@@ -1,0 +1,33 @@
+<div class="ticket-timeline">
+    <h2 class="ticket-timeline__heading">Updates</h2>
+
+    <div class="ticket-timeline__composer">
+        <textarea class="ticket-timeline__textarea"
+                  placeholder="Add a progress note..."
+                  value="@NewUpdateText"
+                  @oninput="args => NewUpdateText = args.Value?.ToString() ?? string.Empty"></textarea>
+        <button type="button" class="button button--secondary" @onclick="SubmitUpdate" disabled="@string.IsNullOrWhiteSpace(NewUpdateText)">
+            Add Update
+        </button>
+    </div>
+
+    @if (Updates.Count == 0)
+    {
+        <p class="ticket-timeline__empty">No updates yet.</p>
+    }
+    else
+    {
+        <ul class="ticket-timeline__list">
+            @foreach (var update in Updates)
+            {
+                <li class="ticket-timeline__item">
+                    <div class="ticket-timeline__item-header">
+                        <span class="ticket-timeline__author">@update.UpdatedBy</span>
+                        <span class="ticket-timeline__date">@update.UpdatedDate.ToString("yyyy-MM-dd HH:mm")</span>
+                    </div>
+                    <p class="ticket-timeline__text">@update.UpdateText</p>
+                </li>
+            }
+        </ul>
+    }
+</div>

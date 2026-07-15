@@ -1,0 +1,14 @@
+@page "/tickets/{TicketId:int}"
+@inject ITicketService TicketService
+
+<div class="ticket-details-page">
+    @if (_ticket is null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <TicketDetailControl Ticket="_ticket" OnStatusChanged="HandleStatusChanged" />
+        <TicketUpdateTimelineControl Updates="_updates" OnAddUpdate="HandleAddUpdate" />
+    }
+</div>

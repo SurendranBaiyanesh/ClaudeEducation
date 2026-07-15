@@ -1,0 +1,7 @@
+@page "/tickets/new"
+@inject ITicketService TicketService
+
+<div class="new-ticket-page">
+    <h1 class="new-ticket-page__title">New Ticket</h1>
+    <TicketFormControl Model="_model" SubmitLabel="Create Ticket" OnSubmit="HandleSubmit" />
+</div>

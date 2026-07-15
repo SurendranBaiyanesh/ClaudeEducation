@@ -1,0 +1,38 @@
+<div class="ticket-detail">
+    <div class="ticket-detail__header">
+        <h1 class="ticket-detail__title">#@Ticket.Id - @Ticket.Title</h1>
+        <div class="ticket-detail__badges">
+            <StatusBadgeControl Status="Ticket.Status" />
+            <PriorityBadgeControl Priority="Ticket.Priority" />
+        </div>
+    </div>
+
+    <p class="ticket-detail__description">@Ticket.Description</p>
+
+    <dl class="ticket-detail__meta">
+        <dt>Assigned To</dt>
+        <dd>@Ticket.AssignedTo (@Ticket.AssignedToEmail)</dd>
+
+        <dt>Created</dt>
+        <dd>@Ticket.CreatedDate.ToString("yyyy-MM-dd HH:mm") UTC</dd>
+
+        <dt>Due Date</dt>
+        <dd><DeadlineIndicatorControl Ticket="Ticket" /></dd>
+
+        <dt>Completed</dt>
+        <dd>@(Ticket.CompletedDate?.ToString("yyyy-MM-dd HH:mm") ?? "Not completed")</dd>
+
+        <dt>Last Notified</dt>
+        <dd>@(Ticket.LastNotifiedDate?.ToString("yyyy-MM-dd HH:mm") ?? "Never")</dd>
+    </dl>
+
+    <div class="ticket-detail__status-change">
+        <label for="statusSelect">Change status</label>
+        <select id="statusSelect" class="ticket-detail__select" value="@Ticket.Status" @onchange="HandleStatusChanged">
+            @foreach (var status in Enum.GetValues<TicketStatus>())
+            {
+                <option value="@status">@status</option>
+            }
+        </select>
+    </div>
+</div>

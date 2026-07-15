@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="EmailNotificationsDataSet"
+           targetNamespace="http://backlogticketmanager.local/schema/EmailNotifications.xsd"
+           xmlns="http://backlogticketmanager.local/schema/EmailNotifications.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+           elementFormDefault="qualified">
+  <xs:element name="EmailNotificationsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EmailNotification">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" />
+              <xs:element name="TicketId" type="xs:int" minOccurs="0" />
+              <xs:element name="NotificationType" type="xs:int" minOccurs="0" />
+              <xs:element name="RecipientEmail" type="xs:string" minOccurs="0" />
+              <xs:element name="Subject" type="xs:string" minOccurs="0" />
+              <xs:element name="Body" type="xs:string" minOccurs="0" />
+              <xs:element name="SentDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Success" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ErrorMessage" type="xs:string" minOccurs="0" nillable="true" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="EmailNotificationKey" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//EmailNotification" />
+      <xs:field xpath="Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

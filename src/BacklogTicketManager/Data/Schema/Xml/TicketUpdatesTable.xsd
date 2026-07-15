@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TicketUpdatesDataSet"
+           targetNamespace="http://backlogticketmanager.local/schema/TicketUpdates.xsd"
+           xmlns="http://backlogticketmanager.local/schema/TicketUpdates.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+           elementFormDefault="qualified">
+  <xs:element name="TicketUpdatesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TicketUpdate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" minOccurs="0" />
+              <xs:element name="TicketId" type="xs:int" minOccurs="0" />
+              <xs:element name="UpdateText" type="xs:string" minOccurs="0" />
+              <xs:element name="UpdatedBy" type="xs:string" minOccurs="0" />
+              <xs:element name="UpdatedDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="TicketUpdateKey" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//TicketUpdate" />
+      <xs:field xpath="Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

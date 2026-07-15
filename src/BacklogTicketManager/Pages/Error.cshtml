@@ -1,0 +1,19 @@
+@page
+@model BacklogTicketManager.Pages.ErrorModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Error</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="error-page">
+        <h1 class="error-page__title">Something went wrong.</h1>
+        <p class="error-page__request-id">Request ID: <code>@Model.RequestId</code></p>
+    </div>
+</body>
+</html>

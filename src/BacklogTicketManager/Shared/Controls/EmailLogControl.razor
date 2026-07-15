@@ -1,0 +1,43 @@
+<div class="email-log">
+    @if (Notifications.Count == 0)
+    {
+        <p class="email-log__empty">No notification emails have been sent yet.</p>
+    }
+    else
+    {
+        <table class="email-log__table">
+            <thead>
+                <tr>
+                    <th>Sent</th>
+                    <th>Ticket</th>
+                    <th>Type</th>
+                    <th>Recipient</th>
+                    <th>Subject</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var notification in Notifications)
+                {
+                    <tr class="email-log__row">
+                        <td>@notification.SentDate.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td>#@notification.TicketId</td>
+                        <td>@notification.NotificationType</td>
+                        <td>@notification.RecipientEmail</td>
+                        <td>@notification.Subject</td>
+                        <td>
+                            @if (notification.Success)
+                            {
+                                <span class="badge badge--completed">Sent</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge--delayed" title="@notification.ErrorMessage">Failed</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

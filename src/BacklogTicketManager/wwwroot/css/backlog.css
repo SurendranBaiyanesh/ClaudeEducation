@@ -1,0 +1,14 @@
+/* backlog.css - page-level layout for Backlog, TicketDetails, NewTicket, and EmailLog pages. */
+
+.backlog-page__title,
+.new-ticket-page__title,
+.email-log-page__title,
+.ticket-details-page h1 {
+  margin-bottom: var(--spacing-md);
+}
+
+.ticket-details-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
