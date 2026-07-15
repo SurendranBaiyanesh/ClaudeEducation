@@ -12,7 +12,7 @@ namespace BacklogTicketManager.Data.Repositories;
 /// </summary>
 public sealed class TicketUpdateRepository : ITicketUpdateRepository
 {
-    private const string SelectColumns = "Id, TicketId, UpdateText, UpdatedBy, UpdatedDate";
+    private const string SelectColumns = "Id, TicketId, [UpdateText], UpdatedBy, UpdatedDate";
 
     private readonly IDbConnectionFactory _connectionFactory;
     private readonly IDataTableSchemaProvider _schemaProvider;
@@ -57,7 +57,7 @@ public sealed class TicketUpdateRepository : ITicketUpdateRepository
     public async Task<int> InsertAsync(TicketUpdate update, CancellationToken cancellationToken = default)
     {
         const string sql = @"
-            INSERT INTO dbo.TicketUpdates (TicketId, UpdateText, UpdatedBy, UpdatedDate)
+            INSERT INTO dbo.TicketUpdates (TicketId, [UpdateText], UpdatedBy, UpdatedDate)
             OUTPUT INSERTED.Id
             VALUES (@TicketId, @UpdateText, @UpdatedBy, @UpdatedDate);";
 

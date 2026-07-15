@@ -36,7 +36,7 @@ BEGIN
     (
         Id            INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
         TicketId      INT                NOT NULL REFERENCES dbo.Tickets(Id) ON DELETE CASCADE,
-        UpdateText    NVARCHAR(MAX)      NOT NULL,
+        [UpdateText]  NVARCHAR(MAX)      NOT NULL,
         UpdatedBy     NVARCHAR(200)      NOT NULL,
         UpdatedDate   DATETIME2          NOT NULL DEFAULT SYSUTCDATETIME()
     );
