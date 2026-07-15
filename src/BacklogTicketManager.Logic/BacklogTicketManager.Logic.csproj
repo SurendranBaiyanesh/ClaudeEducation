@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>BacklogTicketManager.Logic</RootNamespace>
+    <AssemblyName>BacklogTicketManager.Logic</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BacklogTicketManager.Common\BacklogTicketManager.Common.csproj" />
+    <ProjectReference Include="..\BacklogTicketManager.Data\BacklogTicketManager.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- BackgroundService / IHostedService for the delayed-ticket monitor. -->
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>
