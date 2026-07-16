@@ -14,6 +14,7 @@ public sealed class DataTableSchemaProvider : IDataTableSchemaProvider
     private readonly Lazy<DataTable> _ticketsTemplate;
     private readonly Lazy<DataTable> _ticketUpdatesTemplate;
     private readonly Lazy<DataTable> _emailNotificationsTemplate;
+    private readonly Lazy<DataTable> _emailTemplatesTemplate;
 
     public DataTableSchemaProvider()
     {
@@ -27,6 +28,9 @@ public sealed class DataTableSchemaProvider : IDataTableSchemaProvider
 
         _emailNotificationsTemplate = new Lazy<DataTable>(() =>
             LoadTable("EmailNotificationsTable.xsd", "EmailNotification"));
+
+        _emailTemplatesTemplate = new Lazy<DataTable>(() =>
+            LoadTable("EmailTemplatesTable.xsd", "EmailTemplate"));
     }
 
     public DataTable CreateTicketsTable() => _ticketsTemplate.Value.Clone();
@@ -34,6 +38,8 @@ public sealed class DataTableSchemaProvider : IDataTableSchemaProvider
     public DataTable CreateTicketUpdatesTable() => _ticketUpdatesTemplate.Value.Clone();
 
     public DataTable CreateEmailNotificationsTable() => _emailNotificationsTemplate.Value.Clone();
+
+    public DataTable CreateEmailTemplatesTable() => _emailTemplatesTemplate.Value.Clone();
 
     private DataTable LoadTable(string xsdFileName, string tableElementName)
     {

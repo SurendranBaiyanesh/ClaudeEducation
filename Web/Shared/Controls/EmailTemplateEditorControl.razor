@@ -1,0 +1,54 @@
+<EditForm Model="Model" OnValidSubmit="HandleValidSubmit" class="email-template-editor">
+    <DataAnnotationsValidator />
+
+    <div class="email-template-editor__form">
+        <div class="email-template-editor__field">
+            <label for="templateName">Name</label>
+            <InputText id="templateName" class="email-template-editor__input" @bind-Value="Model.Name" />
+            <ValidationMessage For="() => Model.Name" class="email-template-editor__error" />
+        </div>
+
+        <div class="email-template-editor__field">
+            <label for="templateDescription">Description</label>
+            <InputText id="templateDescription" class="email-template-editor__input" @bind-Value="Model.Description" />
+            <ValidationMessage For="() => Model.Description" class="email-template-editor__error" />
+        </div>
+
+        <div class="email-template-editor__field">
+            <label for="templateSubject">Subject</label>
+            <InputText id="templateSubject" class="email-template-editor__input" @bind-Value="Model.Subject" />
+            <ValidationMessage For="() => Model.Subject" class="email-template-editor__error" />
+        </div>
+
+        <div class="email-template-editor__field email-template-editor__field--checkbox">
+            <label for="templateActive">
+                <InputCheckbox id="templateActive" @bind-Value="Model.IsActive" />
+                Active
+            </label>
+        </div>
+
+        <div class="email-template-editor__field">
+            <label for="templateBody">Body (HTML)</label>
+            <InputTextArea id="templateBody" class="email-template-editor__textarea" @bind-Value="Model.Body" />
+            <ValidationMessage For="() => Model.Body" class="email-template-editor__error" />
+            <p class="email-template-editor__hint">
+                Use tokens like <code>{{AssignedTo}}</code>, <code>{{Title}}</code>, <code>{{TicketId}}</code>,
+                <code>{{Priority}}</code>, <code>{{DueDate}}</code>, <code>{{Description}}</code>.
+            </p>
+        </div>
+
+        <div class="email-template-editor__actions">
+            <button type="submit" class="button button--primary">@SubmitLabel</button>
+            @if (OnDelete.HasDelegate && Model.Id != 0)
+            {
+                <button type="button" class="button button--secondary" @onclick="HandleDelete">Delete</button>
+            }
+        </div>
+    </div>
+
+    <div class="email-template-editor__preview">
+        <span class="email-template-editor__preview-label">Preview</span>
+        <div class="email-template-editor__preview-subject">@Model.Subject</div>
+        <div class="email-template-editor__preview-body">@((MarkupString)Model.Body)</div>
+    </div>
+</EditForm>

@@ -37,16 +37,19 @@ builder.Services.AddScoped<IDbConnectionFactory, SqlDbConnectionFactory>();
 builder.Services.AddSingleton<ITicketMapper, TicketMapper>();
 builder.Services.AddSingleton<ITicketUpdateMapper, TicketUpdateMapper>();
 builder.Services.AddSingleton<IEmailNotificationMapper, EmailNotificationMapper>();
+builder.Services.AddSingleton<IEmailTemplateMapper, EmailTemplateMapper>();
 
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<ITicketUpdateRepository, TicketUpdateRepository>();
 builder.Services.AddScoped<IEmailNotificationRepository, EmailNotificationRepository>();
+builder.Services.AddScoped<IEmailTemplateRepository, EmailTemplateRepository>();
 
 // ---------------------------------------------------------------------
 // Business / application services.
 // ---------------------------------------------------------------------
 builder.Services.AddScoped<ICurrentUserContext, CurrentUserContext>();
 builder.Services.AddScoped<ITicketService, TicketService>();
+builder.Services.AddScoped<IEmailTemplateService, EmailTemplateService>();
 builder.Services.AddScoped<IEmailTemplateBuilder, EmailTemplateBuilder>();
 builder.Services.AddScoped<IEmailSender, SmtpEmailSender>();
 builder.Services.AddScoped<ITicketNotificationService, TicketNotificationService>();
