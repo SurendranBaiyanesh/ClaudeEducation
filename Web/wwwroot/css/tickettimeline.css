@@ -1,0 +1,54 @@
+/* ---------------------------------------------------------------------------
+   TicketUpdateTimelineControl - update composer and chronological update list.
+   --------------------------------------------------------------------------- */
+.ticket-timeline {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+}
+
+.ticket-timeline__composer {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.ticket-timeline__textarea {
+  flex: 1;
+  min-height: 60px;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  resize: vertical;
+}
+
+.ticket-timeline__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.ticket-timeline__item {
+  border-left: 3px solid var(--color-primary);
+  padding-left: var(--spacing-md);
+}
+
+.ticket-timeline__item-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.ticket-timeline__text {
+  margin: var(--spacing-xs) 0 0 0;
+}
+
+.ticket-timeline__empty {
+  color: var(--color-text-muted);
+}

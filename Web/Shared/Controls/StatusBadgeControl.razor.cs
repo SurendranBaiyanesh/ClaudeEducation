@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace BacklogTicketManager.Shared.Controls;
 
-/// <summary>Renders a <see cref="TicketStatus"/> as a colour-coded badge. Styling lives in wwwroot/css/controls.css.</summary>
+/// <summary>Renders a <see cref="TicketStatus"/> as a colour-coded badge. Styling lives in wwwroot/css/statusbadge.css.</summary>
 public partial class StatusBadgeControl : ComponentBase
 {
     [Parameter, EditorRequired]

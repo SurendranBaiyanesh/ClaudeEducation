@@ -1,0 +1,34 @@
+/* ---------------------------------------------------------------------------
+   DeadlineIndicatorControl - due date with on-track / due-soon / overdue state.
+   --------------------------------------------------------------------------- */
+.deadline-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.deadline-indicator__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.deadline-indicator--on-track .deadline-indicator__date {
+  color: var(--color-text);
+}
+
+.deadline-indicator--due-soon .deadline-indicator__label {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.deadline-indicator--overdue .deadline-indicator__date,
+.deadline-indicator--overdue .deadline-indicator__label {
+  color: var(--color-danger);
+}
+
+.deadline-indicator--overdue .deadline-indicator__label {
+  background-color: #fee2e2;
+}

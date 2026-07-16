@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace BacklogTicketManager.Shared.Controls;
 
-/// <summary>Renders a <see cref="TicketPriority"/> as a colour-coded badge. Styling lives in wwwroot/css/controls.css.</summary>
+/// <summary>Renders a <see cref="TicketPriority"/> as a colour-coded badge. Styling lives in wwwroot/css/prioritybadge.css.</summary>
 public partial class PriorityBadgeControl : ComponentBase
 {
     [Parameter, EditorRequired]

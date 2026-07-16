@@ -1,0 +1,57 @@
+/* ---------------------------------------------------------------------------
+   TicketListControl - searchable / filterable table of tickets.
+   --------------------------------------------------------------------------- */
+.ticket-list__toolbar {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.ticket-list__search,
+.ticket-list__filter {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+}
+
+.ticket-list__search {
+  flex: 1;
+}
+
+.ticket-list__table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.ticket-list__table th,
+.ticket-list__table td {
+  text-align: left;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ticket-list__table th {
+  background-color: var(--color-bg);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.ticket-list__row {
+  cursor: pointer;
+}
+
+.ticket-list__row:hover {
+  background-color: var(--color-bg);
+}
+
+.ticket-list__empty {
+  color: var(--color-text-muted);
+  padding: var(--spacing-lg);
+  text-align: center;
+}

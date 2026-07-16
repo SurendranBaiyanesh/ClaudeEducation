@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 namespace BacklogTicketManager.Shared.Controls;
 
 /// <summary>Displays the current user's avatar badge (initials), display name and email.
-/// Identity comes from <see cref="ICurrentUserContext"/>. Styling lives in wwwroot/css/controls.css.</summary>
+/// Identity comes from <see cref="ICurrentUserContext"/>. Styling lives in wwwroot/css/avatar.css.</summary>
 public partial class Avatar : ComponentBase
 {
     [Inject]
