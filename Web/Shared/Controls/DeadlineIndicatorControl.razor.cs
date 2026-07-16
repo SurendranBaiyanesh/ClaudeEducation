@@ -5,7 +5,7 @@ namespace BacklogTicketManager.Shared.Controls;
 
 /// <summary>
 /// Shows a ticket's due date and flags whether it is overdue or due soon. Styling lives in
-/// wwwroot/css/controls.css.
+/// wwwroot/css/deadlineindicator.css.
 /// </summary>
 public partial class DeadlineIndicatorControl : ComponentBase
 {

@@ -1,0 +1,32 @@
+/* ---------------------------------------------------------------------------
+   EmailLogControl - table of sent notification emails and their result.
+   Reuses the .badge / .badge--completed / .badge--delayed classes from
+   statusbadge.css for the success / failure indicators.
+   --------------------------------------------------------------------------- */
+.email-log__table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.email-log__table th,
+.email-log__table td {
+  text-align: left;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.email-log__table th {
+  background-color: var(--color-bg);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.email-log__empty {
+  color: var(--color-text-muted);
+}
