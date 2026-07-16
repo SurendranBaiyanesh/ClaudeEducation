@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>BacklogTicketManager.Data</RootNamespace>
+    <AssemblyName>BacklogTicketManager.Data</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ADO.NET provider implementing System.Data.Common; DataTable/DataSet/DataRow (System.Data)
+         are used throughout this layer as required by the architecture. -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- XML schemas that define DataTable structure (field/column names) for each SQL-backed table. -->
+    <None Update="Schema\Xml\*.xsd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Scripts\*.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
