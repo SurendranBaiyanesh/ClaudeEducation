@@ -254,3 +254,44 @@
 .email-log__empty {
   color: var(--color-text-muted);
 }
+
+/* ---------------------------------------------------------------------------
+   Avatar - current user badge (initials), display name and email.
+   Lives in the app header (see MainLayout / site.css .app-shell__header).
+   --------------------------------------------------------------------------- */
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.avatar__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.avatar__details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.avatar__name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.avatar__email {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}

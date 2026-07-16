@@ -1,6 +1,7 @@
 @page "/"
 @namespace BacklogTicketManager.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject BacklogTicketManager.Services.IStyleBuilder StyleBuilder
 @{
     Layout = null;
 }
@@ -12,11 +13,8 @@
     <title>Backlog Ticket Manager</title>
     <base href="~/" />
 
-    <!-- All styling lives exclusively under wwwroot/css - no inline <style> blocks, no CSS isolation files. -->
-    <link rel="stylesheet" href="css/site.css" />
-    <link rel="stylesheet" href="css/controls.css" />
-    <link rel="stylesheet" href="css/forms.css" />
-    <link rel="stylesheet" href="css/backlog.css" />
+    <!-- All wwwroot/css/*.css files are bundled into one stylesheet by StyleBuilder. -->
+    <link rel="stylesheet" href="css/bundle.css?v=@StyleBuilder.ContentHash" />
 </head>
 <body>
     <component type="typeof(BacklogTicketManager.App)" render-mode="ServerPrerendered" />
