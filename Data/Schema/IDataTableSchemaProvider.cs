@@ -21,4 +21,7 @@ public interface IDataTableSchemaProvider
 
     /// <summary>Empty DataTable shaped from Schema/Xml/EmailTemplatesTable.xsd.</summary>
     DataTable CreateEmailTemplatesTable();
+
+    /// <summary>Empty DataTable shaped from Schema/Xml/UsersTable.xsd.</summary>
+    DataTable CreateUsersTable();
 }

@@ -4,4 +4,13 @@
     <NavLink class="nav-menu__link" href="tickets/new">New Ticket</NavLink>
     <NavLink class="nav-menu__link" href="email-log">Email Log</NavLink>
     <NavLink class="nav-menu__link" href="email-templates">Email Templates</NavLink>
+
+    <AuthorizeView>
+        <Authorized>
+            <span class="nav-menu__user">@(context.User.FindFirst("DisplayName")?.Value ?? context.User.Identity?.Name)</span>
+            <form method="post" action="/logout" class="nav-menu__logout">
+                <button type="submit" class="nav-menu__link nav-menu__logout-btn">Logout</button>
+            </form>
+        </Authorized>
+    </AuthorizeView>
 </nav>

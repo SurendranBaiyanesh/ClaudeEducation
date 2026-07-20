@@ -1,0 +1,65 @@
+@page
+@model BacklogTicketManager.Pages.RegisterModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create account - Backlog Ticket Manager</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/auth.css" />
+</head>
+<body>
+    <div class="auth-page">
+        <form class="auth-card" method="post">
+            <h1 class="auth-card__title">Create account</h1>
+            <p class="auth-card__subtitle">Backlog Ticket Manager</p>
+
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="auth-card__error" role="alert">@Model.ErrorMessage</div>
+            }
+
+            <div class="auth-field">
+                <label asp-for="Input.DisplayName">Display name</label>
+                <input asp-for="Input.DisplayName" class="auth-input" autocomplete="name" autofocus />
+                <span asp-validation-for="Input.DisplayName" class="auth-field__error"></span>
+            </div>
+
+            <div class="auth-field">
+                <label asp-for="Input.Username">Username</label>
+                <input asp-for="Input.Username" class="auth-input" autocomplete="username" />
+                <span asp-validation-for="Input.Username" class="auth-field__error"></span>
+            </div>
+
+            <div class="auth-field">
+                <label asp-for="Input.Email">Email</label>
+                <input asp-for="Input.Email" type="email" class="auth-input" autocomplete="email" />
+                <span asp-validation-for="Input.Email" class="auth-field__error"></span>
+            </div>
+
+            <div class="auth-field">
+                <label asp-for="Input.Password">Password</label>
+                <input asp-for="Input.Password" type="password" class="auth-input" autocomplete="new-password" />
+                <span asp-validation-for="Input.Password" class="auth-field__error"></span>
+            </div>
+
+            <div class="auth-field">
+                <label asp-for="Input.ConfirmPassword">Confirm password</label>
+                <input asp-for="Input.ConfirmPassword" type="password" class="auth-input" autocomplete="new-password" />
+                <span asp-validation-for="Input.ConfirmPassword" class="auth-field__error"></span>
+            </div>
+
+            <button type="submit" class="button button--primary auth-card__submit">Create account</button>
+
+            <p class="auth-card__switch">
+                Already have an account? <a href="/login">Sign in</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

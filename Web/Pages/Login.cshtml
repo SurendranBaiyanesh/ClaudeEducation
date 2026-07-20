@@ -1,0 +1,54 @@
+@page
+@model BacklogTicketManager.Pages.LoginModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in - Backlog Ticket Manager</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/auth.css" />
+</head>
+<body>
+    <div class="auth-page">
+        <form class="auth-card" method="post">
+            <h1 class="auth-card__title">Sign in</h1>
+            <p class="auth-card__subtitle">Backlog Ticket Manager</p>
+
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="auth-card__error" role="alert">@Model.ErrorMessage</div>
+            }
+
+            <div class="auth-field">
+                <label asp-for="Input.Username">Username</label>
+                <input asp-for="Input.Username" class="auth-input" autocomplete="username" autofocus />
+                <span asp-validation-for="Input.Username" class="auth-field__error"></span>
+            </div>
+
+            <div class="auth-field">
+                <label asp-for="Input.Password">Password</label>
+                <input asp-for="Input.Password" type="password" class="auth-input" autocomplete="current-password" />
+                <span asp-validation-for="Input.Password" class="auth-field__error"></span>
+            </div>
+
+            <label class="auth-field__checkbox">
+                <input asp-for="Input.RememberMe" type="checkbox" />
+                Remember me
+            </label>
+
+            <input type="hidden" asp-for="ReturnUrl" />
+
+            <button type="submit" class="button button--primary auth-card__submit">Sign in</button>
+
+            <p class="auth-card__switch">
+                Don't have an account? <a href="/register">Create one</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

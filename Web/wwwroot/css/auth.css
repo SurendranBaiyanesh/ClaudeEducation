@@ -1,0 +1,106 @@
+/* ---------------------------------------------------------------------------
+   Auth pages - Login (sign in) and Register (sign up) Razor Pages.
+   These standalone pages link site.css + auth.css directly (they render outside
+   the Blazor shell and must be reachable before authentication).
+   --------------------------------------------------------------------------- */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.auth-card__title {
+  margin: 0;
+}
+
+.auth-card__subtitle {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.auth-card__error {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.auth-field label {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.auth-input {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.auth-field__error {
+  color: var(--color-danger);
+  font-size: 0.8rem;
+}
+
+.auth-field__checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.9rem;
+}
+
+.auth-card__submit {
+  margin-top: var(--spacing-xs);
+}
+
+.auth-card__switch {
+  margin: 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Signed-in user + logout control shown in the app header nav. */
+.nav-menu__user {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  align-self: center;
+}
+
+.nav-menu__logout {
+  margin: 0;
+  display: inline;
+}
+
+.nav-menu__logout-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
