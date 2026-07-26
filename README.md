@@ -122,3 +122,4 @@ The app launches at the URL shown in `Web/Properties/launchSettings.json`. On fi
 ## Further documentation
 
 Additional generated documentation lives in the [`docs/`](docs/) folder (solution report in `.docx` and `.pdf`).
+
